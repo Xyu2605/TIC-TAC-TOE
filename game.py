@@ -97,5 +97,3 @@ if __name__ == '__main__':
     t = TicTacToe()
     play(t, x_player, y_player, print_game = True)
 
-
-# thay doi moi
