@@ -1,4 +1,4 @@
-from player import HumanPlayer, RandomComputerPlayer
+from player import HumanPlayer, AIComputerPlayer, RandomComputerPlayer
 from time import *
 class TicTacToe:
     def __init__(self):
@@ -26,10 +26,10 @@ class TicTacToe:
         #         moves.append(i)
         # return moves   
     
-    def emty_squares(self):
+    def empty_squares(self):
         return ' ' in self.board 
     
-    def num_emty_squares(self):
+    def num_empty_squares(self):
         return self.board.count(' ') 
     
     def make_move(self, square, letter):
@@ -67,7 +67,7 @@ def play(game, x_player, y_player, print_game = True):
         game.print_board_nums()
 
     letter = 'X'
-    while game.emty_squares():
+    while game.empty_squares():
         # Thuc hien nuoc di tu nguoi choi phu hop
         if letter == 'O':
             square = y_player.get_move(game)
@@ -87,13 +87,13 @@ def play(game, x_player, y_player, print_game = True):
             # Doi nuoc di
             letter = 'O' if letter == 'X' else 'X'   
 
-        sleep(2)
+        sleep(1)
     if print_game:
         print('It\'s a tie')
 
 if __name__ == '__main__':
     x_player =  HumanPlayer('X')
-    y_player = RandomComputerPlayer('O')
+    y_player = AIComputerPlayer('O')
     t = TicTacToe()
     play(t, x_player, y_player, print_game = True)
 
